@@ -1,1 +1,1 @@
-# M1GVIAN-VIgenere-ANalyzer
+# VIAN-VIgenere-ANalyzer

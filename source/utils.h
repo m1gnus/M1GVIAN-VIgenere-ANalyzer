@@ -19,3 +19,6 @@ int GCD(int a, int b);
 int mul_GCD(int* elements, int n_of_elements);
 void print_divisors(int m);
 void clean_buffer(void);
+int binomial(int k,int n);
+int fact(int n, int result);
+int frequencies(char c, char* string);

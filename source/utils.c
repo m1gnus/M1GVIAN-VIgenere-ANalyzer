@@ -1,5 +1,29 @@
 #include "utils.h"
 
+int frequencies(char c, char* string){
+	int cont=0;
+	for(int i=0; i<strlen(string); i++){
+		if(*(string+i)==c)
+			cont++;
+	}
+	return cont;
+}
+
+int fact(int n, int result){
+	if(n==1)
+		return result;
+	else
+		fact(n-1, n*result);
+}
+
+int binomial(int k, int n){
+	int num=1, den;
+	for(int i=0; i<n; i++)
+		num*=(k-i);
+	den=fact(n,1);
+	return num/den;
+}
+
 int GCD(int a, int b){
 	if(b==0)
 		return a;
@@ -35,6 +59,7 @@ void print_divisors(int m){
 	printf("%s]\n",COL_STD);
 	//freeing memory
 	free(div);
+	div=NULL;
 }
 
 void clean_buffer(){

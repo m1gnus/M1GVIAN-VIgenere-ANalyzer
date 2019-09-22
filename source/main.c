@@ -26,7 +26,7 @@ char* read_ciphertext(char* path){
 
 void menu(char* ciphertext){
 	char choice='h';
-	int ignore,least=0;
+	int ignore,least=0,m;
 	credits();
 	while(1){
 		printf("\n%s\n\n",ciphertext);
@@ -46,13 +46,21 @@ void menu(char* ciphertext){
 					clean_buffer();
 				}
 				printf("\n");
-				kasiski(ciphertext,ignore,least);
+				kasiski(ciphertext,ignore,least,0);
 				break;
 			case 'h':
 				help();
 				break;
 			case 'c':
 				credits();
+				break;
+			case 'i':
+				indexOfCoincidence(ciphertext);
+				break;
+			case 'g':
+				printf("insert m -> ");
+				scanf("%d",&m);
+				guess_key(ciphertext, m)
 				break;
 			case 'q':
 				return;
@@ -100,6 +108,7 @@ int main(int argc, char** argv){
 
 	//freeing memory
 	free(ciphertext);
+	ciphertext=NULL;
 
 	bye();
 }

@@ -1,6 +1,6 @@
 #include "kasiski.h"
 
-int kasiski(char* ciphertext, int ignore, int n_least){
+int kasiski(char* ciphertext, int ignore, int n_least, _Bool verbose){
 	int *dists=malloc(A_LEN*sizeof(int)), cip_length=strlen(ciphertext), index=0, n_elements=0;
 	char *n_gr_cmp=malloc(A_LEN*sizeof(char)), *n_gr_cmp2=malloc(A_LEN*sizeof(char));
 	_Bool ignored=0, found=0;
@@ -26,7 +26,8 @@ int kasiski(char* ciphertext, int ignore, int n_least){
 					continue;
 				}
 				found=1;
-				printf("[%s*%s] %s%s%s | distance : %d \n",COL_BLUE,COL_STD,COL_YELLOW,COL_STD,n_gr_cmp,i+j-index);
+				if(verbose)
+					printf("[%s*%s] %s%s%s | distance : %d \n",COL_BLUE,COL_STD,COL_YELLOW,COL_STD,n_gr_cmp,i+j-index);
 				*(dists+n_elements)=i+j-index;
 				index=i+j;
 				n_elements++;
@@ -45,5 +46,8 @@ int kasiski(char* ciphertext, int ignore, int n_least){
 		free(dists);
 		free(n_gr_cmp);
 		free(n_gr_cmp2);
+		dists=NULL;
+		n_gr_cmp=NULL;
+		n_gr_cmp2=NULL;
 		return 0;
 }
