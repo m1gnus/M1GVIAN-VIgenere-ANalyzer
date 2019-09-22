@@ -1,5 +1,14 @@
 #include "utils.h"
 
+int max_d(double *arr, int a_len){
+	int max=0;
+	for(int i=0; i<a_len; i++){
+		if(*(arr+i)>*(arr+max))
+			max=i;
+	}
+	return max;
+}
+
 int frequencies(char c, char* string){
 	int cont=0;
 	for(int i=0; i<strlen(string); i++){

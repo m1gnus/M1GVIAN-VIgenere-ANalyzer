@@ -10,12 +10,12 @@ int iox(char *string){
         f=frequencies(start+i,string);
         fs+=(f*(f-1));
     }
-    printf("iox=%f.2\n",(fs/(strlen(string)*(strlen(string)-1))));
+    printf("iox=%s%.3f%s\n",COL_GREEN,(fs/(strlen(string)*(strlen(string)-1))),COL_STD);
     return(fs/(strlen(string)*(strlen(string)-1)));
 }
 
 int indexOfCoincidence(char* ciphertext){
-    int m=1, cont=0, remin=strlen(ciphertext)%m, rowl, max;
+    int m=1, cont=0, remin, rowl, max;
     char **tmp=malloc(A_LEN);
     _Bool found=0;
 
@@ -27,6 +27,7 @@ int indexOfCoincidence(char* ciphertext){
     while(m<=max){
         cont=0;
         rowl=strlen(ciphertext)/m;
+	remin=strlen(ciphertext)%m;
         for(int i=0; i<rowl; i++){
             for(int j=0; j<m; j++){
                 *(*(tmp+j)+i)=*(ciphertext+cont);
@@ -46,7 +47,7 @@ int indexOfCoincidence(char* ciphertext){
         for(int i=0; i<m; i++)
             iox(*(tmp+i));
 
-        printf("m=%d\n",m);
+        printf("m=%s%d%s\n\n\n",COL_BLUE,m,COL_STD);
         m++;
     }
 }

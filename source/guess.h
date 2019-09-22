@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <string.h>
 #include "utils.h"
 
-//guess the key after knowing m
-void guess_key(char* ciphertext);
+//guess the key when we know m
+void guess_key(char* ciphertext, int m);
+void print_table(char* s);

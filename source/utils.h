@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h> 
 
 //Array standard length
 #define A_LEN 1024
@@ -22,3 +23,4 @@ void clean_buffer(void);
 int binomial(int k,int n);
 int fact(int n, int result);
 int frequencies(char c, char* string);
+int max_d(double *arr, int a_len);

@@ -3,7 +3,7 @@
 int kasiski(char* ciphertext, int ignore, int n_least, _Bool verbose){
 	int *dists=malloc(A_LEN*sizeof(int)), cip_length=strlen(ciphertext), index=0, n_elements=0;
 	char *n_gr_cmp=malloc(A_LEN*sizeof(char)), *n_gr_cmp2=malloc(A_LEN*sizeof(char));
-	_Bool ignored=0, found=0;
+	_Bool ignored=0, found=0, gfound;
 
 	for(int i=0; i<cip_length-n_least; i++){
 		index=i;
@@ -26,6 +26,7 @@ int kasiski(char* ciphertext, int ignore, int n_least, _Bool verbose){
 					continue;
 				}
 				found=1;
+				gfound=1;
 				if(verbose)
 					printf("[%s*%s] %s%s%s | distance : %d \n",COL_BLUE,COL_STD,COL_YELLOW,COL_STD,n_gr_cmp,i+j-index);
 				*(dists+n_elements)=i+j-index;
@@ -35,12 +36,13 @@ int kasiski(char* ciphertext, int ignore, int n_least, _Bool verbose){
 		}
 		if(found){
 			int m=mul_GCD(dists,n_elements);
+			if(m!=1){
 			printf("\nprobably m=");
-			print_divisors(m);
-			break;
+			print_divisors(m);}
+			found=0;
 		}
 	}	
-		if(!found)
+		if(!gfound)
 			printf("[%s-%s] Nothing found... try with Index of coincidence (i)...\n",COL_RED,COL_STD);
 		//freeing memory
 		free(dists);

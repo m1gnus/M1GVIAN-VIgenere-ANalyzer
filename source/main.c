@@ -1,5 +1,8 @@
 #include "utils.h"
 #include "kasiski.h"
+#include "iof.h"
+#include "guess.h"
+#include "decrypt.h"
 
 //prototypes
 char* read_ciphertext(char* path);
@@ -26,13 +29,15 @@ char* read_ciphertext(char* path){
 
 void menu(char* ciphertext){
 	char choice='h';
-	int ignore,least=0,m;
+	int ignore,least=0,m=0;
+	char* key=malloc(A_LEN);
 	credits();
 	while(1){
 		printf("\n%s\n\n",ciphertext);
 		printf("[%s+%s] Command -> %s",COL_GREEN,COL_STD,COL_BLUE);
 		scanf("%s", &choice);
 		clean_buffer();
+		choice=tolower(choice);
 		printf("%s",COL_STD);
 		switch(choice){
 			case 'k':
@@ -60,7 +65,14 @@ void menu(char* ciphertext){
 			case 'g':
 				printf("insert m -> ");
 				scanf("%d",&m);
-				guess_key(ciphertext, m)
+				guess_key(ciphertext,6); 
+				break;
+			case 'd':
+				printf("Insert key -> ");
+				scanf("%s",key);
+				for(int i=0; i<strlen(key); i++)
+					*(key+i)=toupper(*(key+i));
+				printf("\n%s\n\n",decrypt(ciphertext,key));
 				break;
 			case 'q':
 				return;
@@ -87,7 +99,7 @@ void bye(){
 }
 
 void help(){
-	printf("\nAvailable commands:\nh (help)\nk (kasiski's test)\nc (print credits)\nq (quit)\n");
+	printf("\nAvailable commands:\nh (help)\nk (kasiski's test)\nc (print credits)\nq (quit)\ni (index of coincidence test)\n");
 }
 
 int main(int argc, char** argv){
