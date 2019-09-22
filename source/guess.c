@@ -42,8 +42,6 @@ void guess_key(char* ciphertext, int m){
 		print_table(*(tmp+i));	
 	}
 	//freeing memory	
-	for(int i=0; i<A_LEN; i++)
-		free(*(tmp+i));
 	free(tmp);
 	tmp=NULL;
 }
