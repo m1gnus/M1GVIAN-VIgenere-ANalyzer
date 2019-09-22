@@ -99,7 +99,7 @@ void bye(){
 }
 
 void help(){
-	printf("\nAvailable commands:\nh (help)\nk (kasiski's test)\nc (print credits)\nq (quit)\ni (index of coincidence test)\n");
+	printf("\nAvailable commands:\nh (help)\nk (kasiski's test)\nc (print credits)\nq (quit)\ni (index of coincidence test)\ng (guess the key)\nd (decrypt)\n");
 }
 
 int main(int argc, char** argv){
