@@ -75,6 +75,8 @@ void menu(char* ciphertext){
 				printf("\n%s\n\n",decrypt(ciphertext,key));
 				break;
 			case 'q':
+				free(key);
+				key=NULL;
 				return;
 			default:
 				printf("\n%sINVALID COMMAND%s\n",COL_RED,COL_STD);
