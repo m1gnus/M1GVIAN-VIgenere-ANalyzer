@@ -59,11 +59,13 @@ void menu(char* ciphertext){
 				break;
 			case 'i':
 				indexOfCoincidence(ciphertext);
+				clean_buffer();
 				break;
 			case 'g':
 				printf("insert m -> ");
 				scanf("%d",&m);
-				guess_key(ciphertext,6); 
+				guess_key(ciphertext,m);
+				clean_buffer();
 				break;
 			case 'd':
 				printf("Insert key -> ");
@@ -71,6 +73,7 @@ void menu(char* ciphertext){
 				for(int i=0; i<strlen(key); i++)
 					*(key+i)=toupper(*(key+i));
 				printf("\n%s\n\n",decrypt(ciphertext,key));
+				clean_buffer();
 				break;
 			case 'q':
 				free(key);
