@@ -33,11 +33,9 @@ void menu(char* ciphertext){
 	char* key=malloc(A_LEN);
 	credits();
 	while(1){
-		choice='h';
 		printf("\n%s\n\n",ciphertext);
 		printf("[%s+%s] Command -> %s",COL_GREEN,COL_STD,COL_BLUE);
 		scanf("%c", &choice);
-		clean_buffer();
 		choice=tolower(choice);
 		printf("%s",COL_STD);
 		switch(choice){
