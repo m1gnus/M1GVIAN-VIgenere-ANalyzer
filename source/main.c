@@ -39,6 +39,7 @@ void menu(char* ciphertext){
 		scanf("%c", &choice);
 		clean_buffer();
 		choice=tolower(choice);
+		clean_buffer();
 		printf("%s",COL_STD);
 		switch(choice){
 			case 'k':
