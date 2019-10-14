@@ -35,7 +35,7 @@ void menu(char* ciphertext){
 	while(1){
 		printf("\n%s\n\n",ciphertext);
 		printf("[%s+%s] Command -> %s",COL_GREEN,COL_STD,COL_BLUE);
-		choice=getchar()
+		choice=getchar();
 		choice=tolower(choice);
 		printf("%s",COL_STD);
 		switch(choice){
