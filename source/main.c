@@ -11,6 +11,24 @@ void bye(void);
 void help(void);
 void credits(void);
 
+//erasing non-alphabetic chars
+char* erase_unalpha(char* ciphertext){
+	char c='0', *new_cipher=malloc(A_LEN*4);
+	int cont=0, cont2=0;
+
+	do{
+		c=*(ciphertext+cont);
+		if((c<='z' && c>='a') || (c<='Z' && c>='A')){
+			*(new_cipher+cont2)=*(ciphertext+cont);
+			cont2++;
+		}
+		cont++;
+	}
+	while(c!='\0');
+	*(new_cipher+cont2)='\0';
+	return new_cipher;
+}
+
 char* read_ciphertext(char* path){
 	char c, *ciphertext=malloc(A_LEN*4);
 	FILE* cip_file=fopen(path,"r");
@@ -88,7 +106,7 @@ void menu(char* ciphertext){
 void credits(){
 	printf("\n%s",COL_YELLOW);
 	printf("**************************************************\n");
-	printf("***VIAN v1.1 -- VIgenere ANalyzer*****************\n");
+	printf("***VIAN v1.0 -- VIgenere ANalyzer*****************\n");
 	printf("***BY M1GNUS -- -- PGIATASTI**********************\n");
 	printf("**************************************************\n");
 	printf("***PLS REPORT ANY BUGS AT m1gnus@protonmail.com***\n");
@@ -118,6 +136,8 @@ int main(int argc, char** argv){
 		ciphertext=read_ciphertext(ciphertext);
 	}
 	
+	ciphertext=erase_unalpha(ciphertext);
+
 	printf("%s",COL_STD); //set the standard color for the output
 	menu(ciphertext);
 
