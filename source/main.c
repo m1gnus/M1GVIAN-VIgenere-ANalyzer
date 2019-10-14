@@ -35,7 +35,6 @@ void menu(char* ciphertext){
 	while(1){
 		printf("\n%s\n\n",ciphertext);
 		printf("[%s+%s] Command -> %s",COL_GREEN,COL_STD,COL_BLUE);
-		clean_buffer();
 		scanf("%c", &choice);
 		clean_buffer();
 		choice=tolower(choice);
