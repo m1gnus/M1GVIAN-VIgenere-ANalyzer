@@ -15,6 +15,8 @@
 #define COL_GRAY "\033[0m"
 #define COL_STD COL_WHITE
 
+#define bool _Bool
+
 int GCD(int a, int b);
 //GCD(a,b,c)=GCD(GCD(a,b),c)
 int mul_GCD(int* elements, int n_of_elements);
