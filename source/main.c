@@ -43,7 +43,6 @@ void menu(char* ciphertext){
 			case 'k':
 				printf("how many ignores? -> ");
 				scanf("%d",&ignore);
-				clean_buffer();
 				least=0;
 				while(least<3){
 					printf("minumum length? (>=3) -> ");
