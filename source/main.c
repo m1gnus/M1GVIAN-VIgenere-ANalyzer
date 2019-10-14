@@ -88,7 +88,7 @@ void menu(char* ciphertext){
 void credits(){
 	printf("\n%s",COL_YELLOW);
 	printf("**************************************************\n");
-	printf("***VIAN v1.0 -- VIgenere ANalyzer*****************\n");
+	printf("***VIAN v1.1 -- VIgenere ANalyzer*****************\n");
 	printf("***BY M1GNUS -- -- PGIATASTI**********************\n");
 	printf("**************************************************\n");
 	printf("***PLS REPORT ANY BUGS AT m1gnus@protonmail.com***\n");
