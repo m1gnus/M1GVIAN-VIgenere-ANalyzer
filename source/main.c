@@ -55,6 +55,7 @@ void menu(char* ciphertext){
 		printf("[%s+%s] Command -> %s",COL_GREEN,COL_STD,COL_BLUE);
 		choice=getchar();
 		choice=tolower(choice);
+        printf("%d", choice);
 		printf("%s",COL_STD);
 		switch(choice){
 			case 'k':
@@ -100,6 +101,7 @@ void menu(char* ciphertext){
 			default:
 				printf("\n%sINVALID COMMAND%s\n",COL_RED,COL_STD);
 		}
+    while(getchar() != '\n');
 	}
 }
 
